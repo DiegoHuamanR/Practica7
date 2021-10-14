@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VentasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Ventas.dbo.CLIENTES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="edad" Type="int" />
+  </EntityType>
+  <EntityContainer Name="VentasModelStoreContainer">
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CLIENTES].[codigo] AS [codigo], 
+    [CLIENTES].[nombre] AS [nombre], 
+    [CLIENTES].[direccion] AS [direccion], 
+    [CLIENTES].[telefono] AS [telefono], 
+    [CLIENTES].[email] AS [email], 
+    [CLIENTES].[edad] AS [edad]
+    FROM [dbo].[CLIENTES] AS [CLIENTES]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
